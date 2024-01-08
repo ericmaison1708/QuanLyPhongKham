@@ -34,7 +34,5 @@
         [StringLength(60)]
         public string Website { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CT_CungCapThuoc> CT_cungCapThuoc { get; set; }
     }
 }
