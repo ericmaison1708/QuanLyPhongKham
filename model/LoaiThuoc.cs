@@ -6,36 +6,24 @@
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("BacSi")]
-    public partial class BacSi
+    [Table("LoaiThuoc")]
+    public partial class LoaiThuoc
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public BacSi()
+        public LoaiThuoc()
         {
-            phieuKetQua = new HashSet<PhieuKetQua>();
+            thuoc = new HashSet<Thuoc>();
         }
 
         [Key]
         [StringLength(5)]
         public string ID { get; set; }
 
-        [StringLength(40)]
-        public string HoTen { get; set; }
-
-        [Column(TypeName = "date")]
-        public DateTime NgaySinh { get; set; }
-
-        [StringLength(4)]
-        public string GioiTinh { get; set; }
-
+        [Required]
         [StringLength(100)]
-        public string DiaChi { get; set; }
-
-        [StringLength(10)]
-        public string SDT { get; set; }
-
+        public string Ten { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PhieuKetQua> phieuKetQua { get; set; }
+        public virtual ICollection<Thuoc> thuoc { get; set; }
     }
 }
