@@ -399,6 +399,23 @@
     <Compile Include="FrmPhieuNhapThuoc.Designer.cs">
       <DependentUpon>FrmPhieuNhapThuoc.cs</DependentUpon>
     </Compile>
+    <Compile Include="model\BacSi.cs" />
+    <Compile Include="model\BenhNhan.cs" />
+    <Compile Include="model\CT_DonThuoc.cs" />
+    <Compile Include="model\CT_HoaDon.cs" />
+    <Compile Include="model\CT_PhieuNhapThuoc.cs" />
+    <Compile Include="model\DichVuKham.cs" />
+    <Compile Include="model\DonThuoc.cs" />
+    <Compile Include="model\HoaDon.cs" />
+    <Compile Include="model\LoaiThuoc.cs" />
+    <Compile Include="model\Model.cs" />
+    <Compile Include="model\NhaCungCap.cs" />
+    <Compile Include="model\NhanVien.cs" />
+    <Compile Include="model\PhieuKetQua.cs" />
+    <Compile Include="model\PhieuKhamBenh.cs" />
+    <Compile Include="model\PhieuNhapThuoc.cs" />
+    <Compile Include="model\TaiKhoan.cs" />
+    <Compile Include="model\Thuoc.cs" />
     <Compile Include="XtraReport1.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -408,7 +425,6 @@
     <EmbeddedResource Include="XtraReport1.resx">
       <DependentUpon>XtraReport1.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="model\BACSI.cs" />
     <Compile Include="FrmPhongCho.cs">
       <SubType>Form</SubType>
     </Compile>

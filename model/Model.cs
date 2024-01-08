@@ -52,6 +52,7 @@ namespace QuanLyPhongKham.model
                 .WithRequired(e => e.bacSi)
                 .WillCascadeOnDelete(false);
 
+
             modelBuilder.Entity<BenhNhan>()
                 .Property(e => e.ID)
                 .IsFixedLength()
@@ -74,7 +75,7 @@ namespace QuanLyPhongKham.model
 
 
             modelBuilder.Entity<CT_HoaDon>()
-                .Property(e => e.ID)
+                .Property(e => e.ID_HoaDon)
                 .IsFixedLength()
                 .IsUnicode(false);
 
@@ -92,6 +93,7 @@ namespace QuanLyPhongKham.model
                 .Property(e => e.ID_PhieuKhamBenh)
                 .IsFixedLength()
                 .IsUnicode(false);
+
 
             modelBuilder.Entity<CT_PhieuNhapThuoc>()
                 .Property(e => e.ID_PhieuNhapThuoc)
@@ -107,6 +109,7 @@ namespace QuanLyPhongKham.model
                 .Property(e => e.DonGia)
                 .HasPrecision(19, 4);
 
+
             modelBuilder.Entity<CT_DonThuoc>()
                 .Property(e => e.ID_DonThuoc)
                 .IsFixedLength()
@@ -127,6 +130,7 @@ namespace QuanLyPhongKham.model
                 .IsFixedLength()
                 .IsUnicode(false);
 
+
             modelBuilder.Entity<DichVuKham>()
                 .Property(e => e.ID)
                 .IsFixedLength()
@@ -141,6 +145,7 @@ namespace QuanLyPhongKham.model
                 .IsFixedLength()
                 .IsUnicode(false);
 
+
             modelBuilder.Entity<HoaDon>()
                 .Property(e => e.TongTien)
                 .HasPrecision(19, 4);
@@ -151,22 +156,24 @@ namespace QuanLyPhongKham.model
                 .IsUnicode(false);
 
             modelBuilder.Entity<HoaDon>()
-                .Property(e => e.MABN)
+                .Property(e => e.ID_BenhNhan)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+
+            modelBuilder.Entity<LoaiThuoc>()
+                .Property(e => e.ID)
                 .IsFixedLength()
                 .IsUnicode(false);
 
             modelBuilder.Entity<LoaiThuoc>()
-                .Property(e => e.MALOAI)
-                .IsFixedLength()
-                .IsUnicode(false);
-
-            modelBuilder.Entity<LoaiThuoc>()
-                .HasMany(e => e.Thuocs)
-                .WithRequired(e => e.LoaiThuoc)
+                .HasMany(e => e.thuoc)
+                .WithRequired(e => e.loaiThuoc)
                 .WillCascadeOnDelete(false);
 
+
             modelBuilder.Entity<NhaCungCap>()
-                .Property(e => e.MANhaCungCap)
+                .Property(e => e.ID)
                 .IsFixedLength()
                 .IsUnicode(false);
 
@@ -176,15 +183,16 @@ namespace QuanLyPhongKham.model
                 .IsUnicode(false);
 
             modelBuilder.Entity<NhaCungCap>()
-                .Property(e => e.EMAIL)
+                .Property(e => e.Email)
                 .IsUnicode(false);
 
             modelBuilder.Entity<NhaCungCap>()
-                .Property(e => e.WEBSITE)
+                .Property(e => e.Website)
                 .IsUnicode(false);
 
+
             modelBuilder.Entity<NhanVien>()
-                .Property(e => e.MANhanVien)
+                .Property(e => e.ID)
                 .IsFixedLength()
                 .IsUnicode(false);
 
@@ -194,213 +202,127 @@ namespace QuanLyPhongKham.model
                 .IsUnicode(false);
 
             modelBuilder.Entity<NhanVien>()
-                .Property(e => e.MADT)
-                .IsFixedLength()
-                .IsUnicode(false);
-
-            modelBuilder.Entity<NhanVien>()
-                .Property(e => e.MACV)
-                .IsFixedLength()
-                .IsUnicode(false);
-
-            modelBuilder.Entity<NhanVien>()
-                .HasMany(e => e.HoaDons)
-                .WithRequired(e => e.NhanVien)
+                .HasMany(e => e.hoaDon)
+                .WithRequired(e => e.nhanVien)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<NhanVien>()
-                .HasMany(e => e.PhieuKhamBenhs)
-                .WithRequired(e => e.NhanVien)
+                .HasMany(e => e.phieuKhamBenh)
+                .WithRequired(e => e.nhanVien)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<NhanVien>()
-                .HasMany(e => e.PhieuNhapThuocs)
-                .WithRequired(e => e.NhanVien)
+                .HasMany(e => e.phieuNhapThuoc)
+                .WithRequired(e => e.nhanVien)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<PHANQUYEN>()
-                .HasMany(e => e.TaiKhoans)
-                .WithRequired(e => e.PHANQUYEN)
-                .HasForeignKey(e => e.QUYENTK)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<PHANQUYEN>()
-                .HasMany(e => e.TaiKhoans1)
-                .WithRequired(e => e.PHANQUYEN1)
-                .HasForeignKey(e => e.QUYENTK)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<PHIEUCANLAMSANG>()
-                .Property(e => e.MAPCLS)
-                .IsFixedLength()
-                .IsUnicode(false);
-
-            modelBuilder.Entity<PHIEUCANLAMSANG>()
-                .Property(e => e.MABN)
-                .IsFixedLength()
-                .IsUnicode(false);
-
-            modelBuilder.Entity<PHIEUCANLAMSANG>()
-                .Property(e => e.TONGTIEN)
-                .HasPrecision(19, 4);
-
-            modelBuilder.Entity<PHIEUCANLAMSANG>()
-                .HasMany(e => e.CT_HoaDon)
-                .WithRequired(e => e.PHIEUCANLAMSANG)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<PHIEUCANLAMSANG>()
-                .HasMany(e => e.CT_SDDV)
-                .WithRequired(e => e.PHIEUCANLAMSANG)
-                .HasForeignKey(e => e.MAPCLS);
-
-            modelBuilder.Entity<PHIEUCANLAMSANG>()
-                .HasMany(e => e.CT_SDDV1)
-                .WithRequired(e => e.PHIEUCANLAMSANG1)
-                .HasForeignKey(e => e.MAPCLS)
-                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<PhieuKetQua>()
-                .Property(e => e.MAPHIEUKQ)
+                .Property(e => e.ID)
                 .IsFixedLength()
                 .IsUnicode(false);
 
             modelBuilder.Entity<PhieuKetQua>()
-                .Property(e => e.MABS)
+                .Property(e => e.ID_BacSi)
                 .IsFixedLength()
                 .IsUnicode(false);
 
             modelBuilder.Entity<PhieuKetQua>()
-                .Property(e => e.MAPHIEUKB)
+                .Property(e => e.ID_PhieuKhamBenh)
                 .IsFixedLength()
                 .IsUnicode(false);
 
             modelBuilder.Entity<PhieuKetQua>()
-                .HasMany(e => e.DonThuocs)
-                .WithRequired(e => e.PhieuKetQua)
-                .HasForeignKey(e => new { e.MAPHIEUKQ, e.MAPHIEUKB })
+                .HasMany(e => e.donThuoc)
+                .WithRequired(e => e.phieuKetQua)
+                .HasForeignKey(e => new { e.ID_PhieuKetQua, e.ID_PhieuKhamBenh })
                 .WillCascadeOnDelete(false);
 
+
             modelBuilder.Entity<PhieuKhamBenh>()
-                .Property(e => e.MAPHIEUKB)
+                .Property(e => e.ID)
                 .IsFixedLength()
                 .IsUnicode(false);
 
             modelBuilder.Entity<PhieuKhamBenh>()
-                .Property(e => e.MAPK)
+                .Property(e => e.ID_NhanVien)
                 .IsFixedLength()
                 .IsUnicode(false);
 
             modelBuilder.Entity<PhieuKhamBenh>()
-                .Property(e => e.MALOAIK)
+                .Property(e => e.ID_BenhNhan)
                 .IsFixedLength()
                 .IsUnicode(false);
 
-            modelBuilder.Entity<PhieuKhamBenh>()
-                .Property(e => e.MANhanVien)
-                .IsFixedLength()
-                .IsUnicode(false);
 
-            modelBuilder.Entity<PhieuKhamBenh>()
-                .Property(e => e.MABN)
+            modelBuilder.Entity<PhieuNhapThuoc>()
+                .Property(e => e.ID)
                 .IsFixedLength()
                 .IsUnicode(false);
 
             modelBuilder.Entity<PhieuNhapThuoc>()
-                .Property(e => e.MAPNT)
+                .Property(e => e.ID_NhanVien)
                 .IsFixedLength()
                 .IsUnicode(false);
 
             modelBuilder.Entity<PhieuNhapThuoc>()
-                .Property(e => e.MANhanVien)
-                .IsFixedLength()
-                .IsUnicode(false);
-
-            modelBuilder.Entity<PhieuNhapThuoc>()
-                .Property(e => e.TONGTIEN)
+                .Property(e => e.TongTien)
                 .HasPrecision(19, 4);
 
-            modelBuilder.Entity<PHONGKHAM>()
-                .Property(e => e.MAPK)
-                .IsFixedLength()
-                .IsUnicode(false);
-
-            modelBuilder.Entity<PHONGKHAM>()
-                .HasMany(e => e.BACSies)
-                .WithRequired(e => e.PHONGKHAM)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<PHONGKHAM>()
-                .HasMany(e => e.PhieuKhamBenhs)
-                .WithRequired(e => e.PHONGKHAM)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<TaiKhoanB>()
-                .Property(e => e.MABS)
-                .IsFixedLength()
-                .IsUnicode(false);
-
-            modelBuilder.Entity<TaiKhoanB>()
-                .Property(e => e.Password)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<TaiKhoanNhanVien>()
-                .Property(e => e.MANhanVien)
-                .IsFixedLength()
-                .IsUnicode(false);
-
-            modelBuilder.Entity<TaiKhoanNhanVien>()
-                .Property(e => e.Password)
-                .IsUnicode(false);
 
             modelBuilder.Entity<Thuoc>()
-                .Property(e => e.MAThuoc)
+                .Property(e => e.ID)
                 .IsFixedLength()
                 .IsUnicode(false);
 
             modelBuilder.Entity<Thuoc>()
-                .Property(e => e.DONGIA)
+                .Property(e => e.GiaNhap)
                 .HasPrecision(19, 4);
 
             modelBuilder.Entity<Thuoc>()
-                .Property(e => e.MALOAI)
+                .Property(e => e.GiaBan)
+                .HasPrecision(19, 4);
+
+            modelBuilder.Entity<Thuoc>()
+                .Property(e => e.ID_LoaiThuoc)
                 .IsFixedLength()
                 .IsUnicode(false);
 
             modelBuilder.Entity<Thuoc>()
-                .HasMany(e => e.CT_DonThuoc)
-                .WithRequired(e => e.Thuoc)
+                .HasMany(e => e.CT_donThuoc)
+                .WithRequired(e => e.thuoc)
                 .WillCascadeOnDelete(false);
 
+
             modelBuilder.Entity<DonThuoc>()
-                .Property(e => e.MADonThuoc)
+                .Property(e => e.ID)
                 .IsFixedLength()
                 .IsUnicode(false);
 
             modelBuilder.Entity<DonThuoc>()
-                .Property(e => e.MAPHIEUKQ)
+                .Property(e => e.ID_PhieuKetQua)
                 .IsFixedLength()
                 .IsUnicode(false);
 
             modelBuilder.Entity<DonThuoc>()
-                .Property(e => e.MAPHIEUKB)
+                .Property(e => e.ID_PhieuKhamBenh)
                 .IsFixedLength()
                 .IsUnicode(false);
 
             modelBuilder.Entity<DonThuoc>()
-                .Property(e => e.TONGTIEN)
+                .Property(e => e.TongTien)
                 .HasPrecision(19, 4);
 
             modelBuilder.Entity<DonThuoc>()
-                .HasMany(e => e.CT_HoaDon)
-                .WithRequired(e => e.DonThuoc)
-                .HasForeignKey(e => new { e.MADonThuoc, e.MAPHIEUKQ, e.MAPHIEUKB })
+                .HasMany(e => e.CT_hoaDon)
+                .WithRequired(e => e.donThuoc)
+                .HasForeignKey(e => new { e.ID_DonThuoc, e.ID_PhieuKetQua, e.ID_PhieuKhamBenh })
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<DonThuoc>()
-                .HasMany(e => e.CT_DonThuoc)
-                .WithRequired(e => e.DonThuoc)
-                .HasForeignKey(e => new { e.MADonThuoc, e.MAPHIEUKQ, e.MAPHIEUKB });
+                .HasMany(e => e.CT_donThuoc)
+                .WithRequired(e => e.donThuoc)
+                .HasForeignKey(e => new { e.ID_DonThuoc, e.ID_PhieuKetQua, e.ID_PhieuKhamBenh });
         }
     }
 }
