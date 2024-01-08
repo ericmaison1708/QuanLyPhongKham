@@ -11,14 +11,9 @@ using System.Windows.Forms;
 
 namespace QuanLyPhongKham
 {
-    public partial class FrmBacSi : DevExpress.XtraEditors.XtraForm
+    public partial class FrmDoiMatKhau : DevExpress.XtraEditors.XtraForm
     {
-        bool Edit;
-        int index;
-        public bool themmoi = false;
-        
-    
-        public FrmBacSi()
+        public FrmDoiMatKhau()
         {
             InitializeComponent();
         }

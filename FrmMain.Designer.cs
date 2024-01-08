@@ -281,6 +281,7 @@
             this.bbtiDoiMatKhau.Id = 11;
             this.bbtiDoiMatKhau.ImageOptions.Image = global::QuanLyPhongKham.Properties.Resources.reset_password;
             this.bbtiDoiMatKhau.Name = "bbtiDoiMatKhau";
+            this.bbtiDoiMatKhau.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbtiDoiMatKhau_ItemClick_1);
             // 
             // bbtiDangXuat
             // 

@@ -191,5 +191,19 @@ namespace QuanLyPhongKham
             showLoadingForm();
             OpenChildForm(new FrmCTPhieuNhap());
         }
+
+        private void bbtiDoiMatKhau_ItemClick_1(object sender, ItemClickEventArgs e)
+        {
+            showLoadingForm();
+            if(Quyen == "Admin")
+            {
+                OpenChildForm(new FrmDoiMatKhau());
+            }
+            else
+            {
+                MessageBox.Show("Bạn không có quyền truy cập", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
+        }
     }
 }

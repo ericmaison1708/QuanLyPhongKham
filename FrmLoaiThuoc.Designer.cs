@@ -212,7 +212,7 @@
             this.Controls.Add(this.lsvLoaiThuoc);
             this.Controls.Add(this.label8);
             this.Name = "FrmLoaiThuoc";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Danh mục loại thuốc";
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
