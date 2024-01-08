@@ -279,6 +279,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConnetToSQL.cs" />
     <Compile Include="FrmBacSi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -416,6 +417,11 @@
     <Compile Include="model\PhieuNhapThuoc.cs" />
     <Compile Include="model\TaiKhoan.cs" />
     <Compile Include="model\Thuoc.cs" />
+    <Compile Include="QUANLYPHONGKHAMDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QUANLYPHONGKHAMDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="XtraReport1.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -531,6 +537,17 @@
     <None Include="Images\multiply.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="QUANLYPHONGKHAMDataSet.xsc">
+      <DependentUpon>QUANLYPHONGKHAMDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="QUANLYPHONGKHAMDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QUANLYPHONGKHAMDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QUANLYPHONGKHAMDataSet.xss">
+      <DependentUpon>QUANLYPHONGKHAMDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Resources\Download premium vector of Clean medical background vector by Tang about pharmacy, wallpaper pharmacy, doctor phone, clean medical background vector, and heart illustration 2292409.jpg" />
   </ItemGroup>
   <ItemGroup>
