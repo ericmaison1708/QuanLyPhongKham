@@ -23,6 +23,10 @@
         [StringLength(5)]
         public string ID_NhanVien { get; set; }
 
+        [Required]
+        [StringLength(6)]
+        public string ID_NhaCungCap { get; set; }
+
         [Column(TypeName = "smalldatetime")]
         public DateTime NgayLap { get; set; }
 
@@ -33,5 +37,8 @@
         public virtual ICollection<CT_PhieuNhapThuoc> CT_phieuNhapThuoc { get; set; }
 
         public virtual NhanVien nhanVien { get; set; }
+
+        public virtual NhaCungCap nhaCungCap { get; set; }
+
     }
 }

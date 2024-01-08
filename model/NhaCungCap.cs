@@ -6,15 +6,9 @@
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("NCC")]
+    [Table("NhaCungCap")]
     public partial class NhaCungCap
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public NhaCungCap()
-        {
-            CT_cungCapThuoc = new HashSet<CT_CungCapThuoc>();
-        }
-
         [Key]
         [StringLength(6)]
         public string ID { get; set; }
